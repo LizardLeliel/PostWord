@@ -1,7 +1,7 @@
 Postword
 ========
 
-Postword is a intrepreted, stack-oriented language, inspired by Forth. It aims to make stack-oriented programming simple and natural, and it is my Volta Megathon entry
+Postword is a intrepreted, stack-oriented language, inspired by Forth. It aims to make stack-oriented programming simple and natural, and it is my Volta Megathon entry. It is created with Flex lexical analyzer
 
 What does a stack oriented language?
 ------------------------------------
@@ -14,7 +14,7 @@ Postword does most of that; however, instead of creating variables, data is stor
 1 55 72 "Hello World" 3.342 5
 
 After this, your stack will look like: <br>
-\[1, 55, 72, "Hello World", 3.342 5\] <br>
+\[1, 55, 72, "Hello World", 3.342, 5\] <br>
 
 And once you have data on the stack, you use operations which pop the data, and push results. Here is what addition, then printing looks like:
 
@@ -40,7 +40,7 @@ These are all valid questions! Postword won't have variables for awhile, however
 Assuming you have a stack of: <br>
 \[1, 4, 7, 6\]
 
-And the operators you have are: <br>
+Then these are the operators, and what they do to the above stack: <br>
 ?   (duplicate the top of the stack -- \[1, 4, 7, 6, 6\]) <br>
 !   (pop the top of the stack -- \[1, 4, 7\]) <br>
 \>>> (rotate the stack one to the right -- \[6, 1, 4, 7\]) <br>
@@ -49,11 +49,11 @@ And the operators you have are: <br>
 
 With these, you can move things arround, and recover them back when you need them. Suppose this quick fibonacci code:
 
-1 1        \[1, 1\] <br>
-  ? >>> +  \[1, 1, 1\] \[1, 1, 1\] \[1, 2\] <br>
-  ? >>> +  \[1, 2, 2\] \[2, 1, 2\] \[2, 3\] <br>
-  ? >>> +  \[2, 3, 3\] \[3, 2, 3\] \[3, 5\] <br>
-  ? >>> +  \[3, 5, 5\] \[5, 3, 5\] \[5, 8\] <br>
+1 1        ( \[1, 1\] ) <br>
+  ? >>> +  ( \[1, 1, 1\] \[1, 1, 1\] \[1, 2\] ) <br>
+  ? >>> +  ( \[1, 2, 2\] \[2, 1, 2\] \[2, 3\] ) <br>
+  ? >>> +  ( \[2, 3, 3\] \[3, 2, 3\] \[3, 5\] ) <br>
+  ? >>> +  ( \[3, 5, 5\] \[5, 3, 5\] \[5, 8\] )<br>
 print      (Prints: 8)
 
 And, as shown above, combining this way of doing arthmetic as well as doing stack operations, some problems become much simplier to do! Stacks are used in every day life, and using a stack-oriented language will let you look at it in a different light!
