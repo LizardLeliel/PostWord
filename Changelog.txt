@@ -1,0 +1,6 @@
+2014 NOV 15 3:20 v0.01:
+    -Reads integers from stdin, pushes them
+    -Reads them anywhere
+    -Not implemented with instruction chains
+
+
