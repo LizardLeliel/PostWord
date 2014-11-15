@@ -22,9 +22,9 @@ And once you have data on the stack, you use operations which pop the data, and 
 
 And if this doesn't make sense, just remember, its about pushing data to the stack, and using it. This is what the stack looks like over time: 
 
-\[27\]
-\[27, 33\]
-\[60\]
+\[27\] <br>
+\[27, 33\] <br>
+\[60\] <br> 
 \[\]  (This what the stack looks like after its printed!)
 
 Simple, isn't it? And with this, you can add (+), subtract (-),
@@ -49,11 +49,11 @@ And the operators you have are: <br>
 
 With these, you can move things arround, and recover them back when you need them. Suppose this quick fibonacci code:
 
-1 1        \[1, 1\]
-  ? >>> +  \[1, 1, 1\] \[1, 1, 1\] \[1, 2\]
-  ? >>> +  \[1, 2, 2\] \[2, 1, 2\] \[2, 3\]
-  ? >>> +  \[2, 3, 3\] \[3, 2, 3\] \[3, 5\]
-  ? >>> +  \[3, 5, 5\] \[5, 3, 5\] \[5, 8\]
+1 1        \[1, 1\] <br>
+  ? >>> +  \[1, 1, 1\] \[1, 1, 1\] \[1, 2\] <br>
+  ? >>> +  \[1, 2, 2\] \[2, 1, 2\] \[2, 3\] <br>
+  ? >>> +  \[2, 3, 3\] \[3, 2, 3\] \[3, 5\] <br>
+  ? >>> +  \[3, 5, 5\] \[5, 3, 5\] \[5, 8\] <br>
 print      (Prints: 8)
 
 And, as shown above, combining this way of doing arthmetic as well as doing stack operations, some problems become much simplier to do! Stacks are used in every day life, and using a stack-oriented language will let you look at it in a different light!
