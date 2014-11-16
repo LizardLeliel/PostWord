@@ -2,10 +2,18 @@
 #include <stdio.h>
 #include <string.h>
 
+/* Data values */
+typedef enum PW_TYPES {
+    nil = 0,
+    pw_integer  = 1,
+    pw_floating = 2,
+    pw_boolean  = 4,
+} pwTypes;
+
 /* Data emplaced on stack */
 typedef struct PW_STACK_NODE {
-    void* data;
-    int   type;
+    void*     data;
+    pwTypes   type;
 
     struct PW_STACK_NODE* next;
 } stackNode;
@@ -19,36 +27,36 @@ typedef struct PW_STACK_HEAD {
 } stackHead;
 
 /* The stack postward uses */
-stackHead* pwSTACK;
+stackHead* STACK;
 
 /* Prepare the stack*/
 void initStack() {
-    pwSTACK       = (stackHead*)malloc(sizeof(stackHead));
-    pwSTACK->head = (stackNode*)malloc(sizeof(stackNode));
+    STACK       = (stackHead*)malloc(sizeof(stackHead));
+    STACK->head = (stackNode*)malloc(sizeof(stackNode));
 
-    pwSTACK->tail   = pwSTACK->head;
-    pwSTACK->length = 0;
+    STACK->tail   = STACK->head;
+    STACK->length = 0;
 
-    pwSTACK->tail->data = NULL;
-    pwSTACK->tail->next = NULL;
-    pwSTACK->tail->type = 0;
+    STACK->tail->data = NULL;
+    STACK->tail->next = NULL;
+    STACK->tail->type = nil;
 
 }
 
 /* Pop anything off of the stack */
 int pop() {
-    if (pwSTACK->length == 0) {
+    if (STACK->length == 0) {
         printf("Stack Underflow - popping\n");
         return -1;
     }
 
-    stackNode* temp = pwSTACK->head;
-    pwSTACK->head = temp->next;
+    stackNode* temp = STACK->head;
+    STACK->head = temp->next;
 
     free(temp->data);
     free(temp);
 
-    --pwSTACK->length;
+    --STACK->length;
     return 0;
 }
 
@@ -60,36 +68,111 @@ int pushInt(int n) {
 
     newNode->data = malloc(sizeof(int));
     *(int*)newNode->data = n;
-    newNode->type = 1;
+    newNode->type = pw_integer;
 
-    newNode->next = pwSTACK->head;
-    pwSTACK->head = newNode;
+    newNode->next = STACK->head;
+    STACK->head = newNode;
 
-    ++pwSTACK->length;
+    ++STACK->length;
+
+    return 0;
+}
+
+/* push a double onto the stack */
+int pushFloat(double n) {
+    stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
+
+    if (!newNode) {printf("Bad_alloc\n"); return -1;}
+
+    newNode->data = malloc(sizeof(double));
+    *(double*)newNode->data = n;
+    newNode->type = pw_floating;
+
+    newNode->next = STACK->head;
+    STACK->head   = newNode;
+
+    ++STACK->length;
 
     return 0;
 }
 
 /* print an integer and pop */
 int printInt() {
-    if (pwSTACK->length == 0) {
+    if (STACK->length == 0) {
         printf("Stack Underflow -- int print\n");
         return -1;
     }
 
-    printf("%d", *(int*)pwSTACK->head->data);
+    printf("%d", *(int*)STACK->head->data);
 
     if (pop()) {
-        printf("in printInt\n"); return -1;
+        printf("D: in printInt()\n"); return -1;
     }
 
     return 0;
 }
 
-int getStackLength() {
-    return pwSTACK->length;
+int printFloat() {
+    if (STACK->length == 0) {
+        printf("Stack Underflow -- double print\n");
+        return -1;
+    }
+
+    printf("%f", *(double*)STACK->head->data);
+
+    if (pop()) {
+        printf("D: in PrintFloat()\n");
+    }
 }
 
+/* Pop and return int */
+
+int popInt() {
+    int a = *(int*)STACK->head->data;
+    pop();
+    return a;
+}
+
+double popFloat() {
+    double b = STACK->head->type & pw_floating
+             ? *(double*)STACK->head->data
+             : (double)*(int*)STACK->head->data;
+    pop(); return b;
+}
+
+
+/* Add top two nodes */
+int stackAdd() {
+    if (STACK->length < 2) { printf("Stack Underflow - add\n"); return -1; }
+    if (STACK->head->type       == pw_integer &&
+        STACK->head->next->type == pw_integer) {
+            int a = popInt();
+            int b = popInt();
+            pushInt(a + b);
+            return 0;
+    }
+    if(STACK->head->type       & (pw_integer | pw_floating) &&
+       STACK->head->next->type & (pw_integer | pw_floating)) {
+            double c = popFloat();
+            double d = popFloat();
+            pushFloat(c + d);
+            return 0;
+    }
+    printf("Incompatible types\n");
+    return -1;
+}
+
+int getStackLength() {
+    return STACK->length;
+}
+
+pwTypes getNextType() {
+    if (!(STACK && STACK->head)) {
+        printf("Something bad happened\n");
+        return nil;
+    }
+    return STACK->head->type;
+}
 
 
 

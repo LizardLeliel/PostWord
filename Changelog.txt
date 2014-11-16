@@ -1,6 +1,13 @@
-2014 NOV 15 3:20 v0.01:
+2014 NOV 15 3:20pm v0.1.0:
     -Reads integers from stdin, pushes them
     -Reads them anywhere
     -Not implemented with instruction chains
+
+2014 NOV 14 8:33pm v0.2.0:
+    -Reads integers, doubles
+    -Must now be followed by a space
+    -Operator "+"; must be followed by a space
+
+
 
 

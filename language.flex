@@ -1,17 +1,28 @@
 %option noyywrap
 
-DIGIT      [0-9]
+INT        [0-9]
 NDIGIT     [^0-9]
-WSPACE     [\n\t]
-
 
 %%
 
-{DIGIT}+             {
-	             pushInt(atoi(yytext));
-		     }
-"<<EOF>>"            return;
-{NDIGIT}+            printf("");
+{INT}+[ \t\n]                      {
+	             	           pushInt(atoi(yytext));
+		   	 	   printf("debugging, int");
+		     	           }
+{INT}+"."{INT}+[ \t\n]             {
+				   pushFloat(atof(yytext));
+				   printf("debugging, float");
+				   }
+
+"+"[ \t\n]			   {
+				   stackAdd();
+				   printf("Add");
+				   }
+
+
+
+
+"<<EOF>>"            	 return 0;
 
 %%
 
