@@ -54,6 +54,24 @@ NDIGIT     [^0-9]
 "||"[ \t\n]			{
 				if (stackOr()) return -1;
 				}
+"<"[ \t\n]			{
+				if (stackLessThen()) return -1;
+				}
+"<="[ \t\n]			{
+				if (stackLessEq()) return -1;
+				}
+">"[ \t\n]			{
+				if (stackMoreThen()) return -1;
+				}
+">="[ \t\n]			{
+				if (stackMoreEq()) return -1;
+				}
+"=="[ \t\n]			{
+				if (stackEqual()) return -1;
+				}
+"!="[ \t\n]			{
+				if (stackInequal()) return -1;
+				}
 "print"[ \t\n]			{
 				if (printTop()) return -1;
 				}

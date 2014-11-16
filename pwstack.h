@@ -51,6 +51,13 @@ int stackDiv();
 int stackNot();
 int stackAnd();
 int stackOr();
+/* Comparison operators */
+int stackLessThen();
+int stackLessEq();
+int stackMoreThen();
+int stackMoreEq();
+int stackEqual();
+int stackInequal();
 /* Stack Operations */
 int stackSwap();
 int stackLROT();

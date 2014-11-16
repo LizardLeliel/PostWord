@@ -391,6 +391,159 @@ int stackOr() {
     return 0;
 }
 
+/* ======= Comparison operators =======*/
+int stackLessThen() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! -- Comparison less then\n");
+        return -1;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean) &&
+        STACK->head->next->type & (pw_integer | pw_boolean)) {
+
+        int k = popInt();
+        int l = popInt();
+        k < l ? pushTrue() : pushFalse();
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_boolean | pw_floating)) {
+
+            double m = popFloat();
+            double n = popFloat();
+            m < n ? pushTrue() : pushFalse();
+            return 0;
+    }
+    printf("Incompatable types -- Comparison less then\n");
+    return -1;
+}
+
+int stackLessEq() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! -- Comparison less then\n");
+        return -1;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean) &&
+        STACK->head->next->type & (pw_integer | pw_boolean)) {
+
+        int k = popInt();
+        int l = popInt();
+        k <= l ? pushTrue() : pushFalse();
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_boolean | pw_floating)) {
+
+            double m = popFloat();
+            double n = popFloat();
+            m <= n ? pushTrue() : pushFalse();
+            return 0;
+    }
+    printf("Incompatable types -- Comparison less then\n");
+    return -1;
+}
+
+int stackMoreThen() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! -- Comparison less then\n");
+        return -1;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean) &&
+        STACK->head->next->type & (pw_integer | pw_boolean)) {
+
+        int k = popInt();
+        int l = popInt();
+        k > l ? pushTrue() : pushFalse();
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_boolean | pw_floating)) {
+
+            double m = popFloat();
+            double n = popFloat();
+            m > n ? pushTrue() : pushFalse();
+            return 0;
+    }
+    printf("Incompatable types -- Comparison less then\n");
+    return -1;
+}
+
+int stackMoreEq() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! -- Comparison less then\n");
+        return -1;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean) &&
+        STACK->head->next->type & (pw_integer | pw_boolean)) {
+
+        int k = popInt();
+        int l = popInt();
+        k >= l ? pushTrue() : pushFalse();
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_boolean | pw_floating)) {
+
+            double m = popFloat();
+            double n = popFloat();
+            m >= n ? pushTrue() : pushFalse();
+            return 0;
+    }
+    printf("Incompatable types -- Comparison less then\n");
+    return -1;
+}
+
+int stackEqual() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! -- Comparison less then\n");
+        return -1;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean) &&
+        STACK->head->next->type & (pw_integer | pw_boolean)) {
+
+        int k = popInt();
+        int l = popInt();
+        k == l ? pushTrue() : pushFalse();
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_boolean | pw_floating)) {
+
+            double m = popFloat();
+            double n = popFloat();
+            m == n ? pushTrue() : pushFalse();
+            return 0;
+    }
+    printf("Incompatable types -- Comparison less then\n");
+    return -1;
+
+}
+
+int stackInequal() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! -- Comparison less then\n");
+        return -1;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean) &&
+        STACK->head->next->type & (pw_integer | pw_boolean)) {
+
+        int k = popInt();
+        int l = popInt();
+        k != l ? pushTrue() : pushFalse();
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_boolean | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_boolean | pw_floating)) {
+
+            double m = popFloat();
+            double n = popFloat();
+            m != n ? pushTrue() : pushFalse();
+            return 0;
+    }
+    printf("Incompatable types -- Comparison less then\n");
+    return -1;
+
+}
+
 /* ======= Stack Operators ====== */
 int stackSwap() {
     if (STACK->length < 2) {

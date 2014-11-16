@@ -25,5 +25,6 @@
 2014 NOV 15 6:41am  v0.4.6:
     -Print, prints, and puts statements add
 
-
+2014 NOV 15 7:52am  v0.4.9:
+    -Comparison operators (<, >, <=, >=, ==, !=)
 

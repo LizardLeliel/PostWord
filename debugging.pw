@@ -1,6 +1,23 @@
 (This file is used for debugging; SampleInput.in has structured Postword code)
-31 29 26 true false true !! <- 29.5 0 !! 
+31 20 < prints 20 31 < prints ! ! 
 
-true false && true true && 3 false &&  
+3 3 <= puts ! 
+1 2 <= puts ! 
+2 1 <= puts ! 
 
-1 1 || 0 1 || false false || false true || 1 false || ??? ? prints prints prints prints prints prints prints prints 4 prints 4 ? prints puts puts puts  
+3 3 >= puts ! 
+1 2 >= puts ! 
+2 1 >= puts ! 
+
+3 3 > puts ! 
+1 2 > puts ! 
+2 1 > puts ! 
+
+3 3 == puts ! 
+true false == puts ! 
+true false != puts ! 
+
+4.7089 5.656363 < puts ! 
+4.7089 5.656363 > puts !
+4.5 5 < puts !
+4.5 5 > puts !

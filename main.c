@@ -26,18 +26,12 @@ int main(int argc, char** argv)
     printf("PRINTING\n");
 
     int m = getStackLength();
-    int counter; printBool();
+    int counter;
 
-    printf("%d", getStackLength()); putchar('\n');
+    printf("Stack Size: %d", getStackLength()); putchar('\n');
 
     for (counter = 0; counter < m; ++counter) {
-        if (getNextType() == pw_integer) {
-            printInt(); putchar(' '); }
-        else if (getNextType() == pw_floating) {
-            printFloat(); putchar(' '); }
-        else if (getNextType() == pw_boolean) {
-            printInt(); putchar(' ');
-        }
+        printsTop();
     }
 
     printf("\nDebug: Hello world!\n");
