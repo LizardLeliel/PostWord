@@ -162,6 +162,76 @@ int stackAdd() {
     return -1;
 }
 
+int stackSub() {
+    if (STACK->length < 2) {
+        printf("Stack Underflow - subtracring\n"); return -1; }
+    if (STACK->head->type       == pw_integer &&
+        STACK->head->next->type == pw_integer) {
+            int a = popInt();
+            int b = popInt();
+            pushInt(a - b);
+            return 0;
+        }
+        if (STACK->head->type       & (pw_integer | pw_floating) &&
+            STACK->head->next->type & (pw_integer | pw_floating)) {
+                double c = popFloat();
+                double d = popFloat();
+                pushFloat(c - d);
+                return 0;
+        }
+        printf("Incompatiable types\n");
+        return -1;
+}
+
+int stackMul() {
+    if (STACK->length < 2) {
+        printf("Stack Underflow - multiplying\n"); return -1; }
+    if (STACK->head->type       == pw_integer &&
+        STACK->head->next->type == pw_integer) {
+            int a = popInt();
+            int b = popInt();
+            pushInt(a*b);
+            return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_floating)) {
+            double c = popFloat();
+            double d = popFloat();
+            pushFloat(c*d);
+            return 0;
+    }
+}
+
+int stackDiv() {
+    if (STACK->length < 2) {
+        printf("Stack Underflow - division\n"); return -1; }
+    if (STACK->head->type       == pw_integer &&
+        STACK->head->next->type == pw_integer) {
+            int a = popInt();
+            int b = popInt();
+            if (b == 0) {
+                printf("Division by 0: %d/%d", a, b);
+                return -1;
+            }
+            pushInt(a / b);
+            return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_floating)) {
+            double c = popFloat();
+            double d = popFloat();
+            if (d == 0.0) {
+                printf("Division by 0.0: %f/%f", c, d);
+                return -1;
+            }
+            pushFloat(c / d);
+            return 0;
+    }
+}
+
+/* Subtract top two nodes */
+
+
 int getStackLength() {
     return STACK->length;
 }

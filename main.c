@@ -12,25 +12,22 @@ int main(int argc, char** argv)
 
     if (argc > 1) {
         yyin = fopen(argv[1], "r");
-        yylex();
+        if (yylex()) return -1;
     }
     else {
         printf("No file!");
         return -1;
     }
 
-    printf("PRINTING\n");
+    /*sample input:
+    ** 2 34 77 90 3.5 + -
+    */
 
-/*
-    stackAdd();
-    stackAdd();
-    stackAdd();
-    stackAdd();
-    stackAdd();
-*/
+    printf("PRINTING\n");
 
     int m = getStackLength();
     int counter;
+
     for (counter = 0; counter < m; ++counter) {
         if (getNextType() == pw_integer) {
             printInt(); putchar(' '); }

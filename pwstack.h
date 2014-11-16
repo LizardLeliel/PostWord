@@ -37,6 +37,9 @@ int popInt();
 double popFloat();
 /* Arthimetic */
 int stackAdd();
+int stackSub();
+int stackMul();
+int stackDiv();
 /* Others */
 int getStackLength();
 pwTypes getNextType();

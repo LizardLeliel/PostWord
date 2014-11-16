@@ -8,6 +8,10 @@
     -Must now be followed by a space
     -Operator "+"; must be followed by a space
 
+2014 NOV 14 9:06pm v0.2.6:
+    -Supports operators -, /, and *
+    -Exits on stack underflow
+
 
 
 
