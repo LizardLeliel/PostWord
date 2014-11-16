@@ -33,6 +33,10 @@ int pushFalse();
 /* Printing */
 int printInt();
 int printFloat();
+int printBool();
+int printTop();
+int printsTop();
+int putsTop();
 /* Popping & Dupping */
 int stackDup();
 int pop();

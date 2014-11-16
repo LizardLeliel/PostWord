@@ -32,7 +32,7 @@ int memsize[pw_boolean+1];
 /* The stack postward uses */
 stackHead* STACK;
 
-/* Prepare the stack*/
+/* ======= Mangament functions (that the word?) ======= */
 void initStack() {
     STACK       = (stackHead*)malloc(sizeof(stackHead));
     STACK->head = (stackNode*)malloc(sizeof(stackNode));
@@ -54,7 +54,7 @@ int setTail() {
     return 0;
 }
 
-/* Pop anything off of the stack */
+/* ======= Basic stack operations ====== */
 int pop() {
     if (STACK->length == 0) {
         printf("Stack Underflow - popping\n");
@@ -73,7 +73,6 @@ int pop() {
     return 0;
 }
 
-/* dups top */
 int stackDup() {
     if (STACK->length == 0) {printf("Emptey stack"); return -1;}
 
@@ -96,7 +95,7 @@ int stackDup() {
     return 0;
 }
 
-/* push an int onto the stack */
+/* ====== Push functions ======= */
 int pushInt(int n) {
     stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
 
@@ -116,7 +115,6 @@ int pushInt(int n) {
     return 0;
 }
 
-/* push a double onto the stack */
 int pushFloat(double n) {
     stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
 
@@ -174,8 +172,8 @@ int pushFalse() {
     return 0;
 }
 
-
-/* print an integer and pop */
+/* ======= Print functions ====== */
+/* I gook a quick couple minute nap, then suddenly deja vu! */
 int printInt() {
     if (STACK->length == 0) {
         printf("Stack Underflow -- int print\n");
@@ -191,7 +189,6 @@ int printInt() {
     return 0;
 }
 
-/* print a double and pop*/
 int printFloat() {
     if (STACK->length == 0) {
         printf("Stack Underflow -- double print\n");
@@ -202,17 +199,58 @@ int printFloat() {
 
     if (pop()) {
         printf("D: in PrintFloat()\n");
+        return -1;
     }
+
+    return 0;
 }
 
-/* pop and return int */
+int printBool() {
+    if (STACK->length == 0) {
+        printf("Stack underflow -- bool print\n");
+        return -1;
+    }
+
+    printf("%s", *(int*)STACK->head->data ? "true" : "false");
+    return 0;
+}
+
+int printTop() {
+    if (!STACK->length ) {
+        printf("Stack underflow -- nothing to print");
+        return -1;
+    }
+    switch (STACK->head->type) {
+      case (pw_integer):
+        printInt(); break;
+      case (pw_floating):
+        printFloat(); break;
+      case (pw_boolean):
+        printBool(); break;
+      default:
+        break;
+    }
+
+    return 0;
+}
+
+int printsTop() {
+    if (printTop()) return -1;
+    putchar(' '); return 0;
+}
+
+int putsTop() {
+    if (printTop()) return -1;
+    putchar('\n'); return 0;
+}
+
+/* ====== Return pops ====== */
 int popInt() {
     int a = *(int*)STACK->head->data;
     pop();
     return a;
 }
 
-/* pop and return a double */
 double popFloat() {
     double b = STACK->head->type & pw_floating
              ? *(double*)STACK->head->data
@@ -279,6 +317,7 @@ int stackMul() {
             pushFloat(c*d);
             return 0;
     }
+    printf("Invalid types"); return -1;
 }
 
 int stackDiv() {
@@ -306,6 +345,9 @@ int stackDiv() {
             pushFloat(c / d);
             return 0;
     }
+
+    printf("Invalid types -- operator '/'");
+    return -1;
 }
 
 /* ======= Boolean operators ====== */
@@ -377,6 +419,9 @@ int stackLROT() {
         trace = trace->next;
     }
 
+    /* Pointing to the left  <(^.^<) *\
+    \* Pointing to the right (>^.^)> */
+
     STACK->tail = trace;
     STACK->tail->next->next = NULL;
 
@@ -399,9 +444,6 @@ int stackRROT() {
 }
 
 /* ======= Other ======= */
-int pushStackLength() {
-    if (pushInt(getStackLength())) return -1;
-}
 
 int getStackLength() {
     return STACK->length;
@@ -409,13 +451,16 @@ int getStackLength() {
 
 pwTypes getNextType() {
     if (!(STACK && STACK->head)) {
-        printf("DEBUG invalid STACK or STACK->HEAD is false\n");
-        printf("%d\n", STACK);
+        printf("DEBUG invalid STACK or STACK->HEAD is false -- getNextType()");
         return nil;
     }
     return STACK->head->type;
 }
 
+int pushStackLength() {
+    if (pushInt(getStackLength())) return -1;
+    return 0;
+}
 
 
 

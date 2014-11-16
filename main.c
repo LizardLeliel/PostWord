@@ -26,7 +26,7 @@ int main(int argc, char** argv)
     printf("PRINTING\n");
 
     int m = getStackLength();
-    int counter;
+    int counter; printBool();
 
     printf("%d", getStackLength()); putchar('\n');
 

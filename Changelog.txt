@@ -22,3 +22,8 @@
     -Boolean data types
     -Boolean operations (&&, ||, !!)
 
+2014 NOV 15 6:41am  v0.4.6:
+    -Print, prints, and puts statements add
+
+
+

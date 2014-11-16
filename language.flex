@@ -54,6 +54,15 @@ NDIGIT     [^0-9]
 "||"[ \t\n]			{
 				if (stackOr()) return -1;
 				}
+"print"[ \t\n]			{
+				if (printTop()) return -1;
+				}
+"prints"[ \t\n]			{
+				if (printsTop()) return -1;
+				}
+"puts"[ \t\n]			{
+				if (putsTop()) return -1;
+				}
 "???"[ \t\n]			{
 				if (pushStackLength()) return -1;
 				}
