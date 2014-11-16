@@ -6,6 +6,7 @@ typedef enum PW_TYPES {
     pw_integer  = 1,
     pw_floating = 2,
     pw_boolean  = 4,
+    pw_string   = 8,
 } pwTypes;
 
 /* Node */
@@ -30,10 +31,12 @@ int pushInt(int n);
 int pushFloat(double n);
 int pushTrue();
 int pushFalse();
+int pushString(char* ctring);
 /* Printing */
 int printInt();
 int printFloat();
 int printBool();
+int printString();
 int printTop();
 int printsTop();
 int putsTop();
@@ -42,6 +45,7 @@ int stackDup();
 int pop();
 int popInt();
 double popFloat();
+char* returnStringRef();
 /* Arthimetic */
 int stackAdd();
 int stackSub();
@@ -65,6 +69,7 @@ int stackRROT();
 /* Others */
 int getStackLength();
 pwTypes getNextType();
+int pushStackLength();
 
 #define PW_STACK_FILE
 #endif /* PW_STACK_FILE */

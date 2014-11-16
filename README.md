@@ -50,16 +50,14 @@ Then these are the operators, and what they do to the above stack: <br>
 With these, you can move things arround, and recover them back when you need them. Suppose this quick fibonacci code:
 
 1 1        ( \[1, 1\] ) <br>
-  ? >>> +  ( \[1, 1, 1\] \[1, 1, 1\] \[1, 2\] ) <br>
-  ? >>> +  ( \[1, 2, 2\] \[2, 1, 2\] \[2, 3\] ) <br>
-  ? >>> +  ( \[2, 3, 3\] \[3, 2, 3\] \[3, 5\] ) <br>
-  ? >>> +  ( \[3, 5, 5\] \[5, 3, 5\] \[5, 8\] )<br>
+  ? -> +  ( \[1, 1, 1\] \[1, 1, 1\] \[1, 2\] ) <br>
+  ? -> +  ( \[1, 2, 2\] \[2, 1, 2\] \[2, 3\] ) <br>
+  ? -> +  ( \[2, 3, 3\] \[3, 2, 3\] \[3, 5\] ) <br>
+  ? -> +  ( \[3, 5, 5\] \[5, 3, 5\] \[5, 8\] )<br>
 print      (Prints: 8)
 
 And, as shown above, combining this way of doing arthmetic as well as doing stack operations, some problems become much simplier to do! Stacks are used in every day life, and using a stack-oriented language will let you look at it in a different light!
 
-More to come!
--------------
 
 
 

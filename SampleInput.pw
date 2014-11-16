@@ -1,5 +1,9 @@
 (NOTE: Anything in brackets are comments!)
 
+"Hello, world!" puts 
+"This is a Postward example" puts 
+"Here is a sample fibonacci program:" puts 
+
 1 1 ( Calculates the tenth fibonaci number -- with 2 being the second fib number )
  ? -> +          ( n1 n2 -- n2 n2 + n1) ( 1 1 -- 1 2 )
  ? -> +          (  1 2  --  2 3  )
@@ -12,5 +16,5 @@
  ? -> +          ( 34 55 -- 55 89 )
 <-> !            ( 55 89 -- 89 )
 
-( final output: 89 )
+"The tenth fibonaci number is: " puts puts 
 

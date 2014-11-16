@@ -28,5 +28,13 @@
 2014 NOV 15 7:52am  v0.4.9:
     -Comparison operators (<, >, <=, >=, ==, !=)
 
-2014 NOV 15 8:02am  v0.6.10:
+2014 NOV 15 8:02am  v0.5.0:
     -Fixed error messages for comparison operators
+
+2014 NOV 15 11:33am V0.6.0:
+    -STRINGS! (no accessing individual characters, however. But still! Printing out literals is nice)
+
+2014 NOV 15 1:00pm  V0.6.1/2:
+    -Cleaned output 
+
+

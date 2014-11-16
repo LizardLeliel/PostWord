@@ -1,23 +1,16 @@
-(This file is used for debugging; SampleInput.in has structured Postword code)
-31 20 < prints 20 31 < prints ! ! 
+(This file is used for debugging; SampleInput.in has structured Postword code) (anything in brackets are comments) 
+"Hello, world!" puts "This is a Postword example" puts "Here is a sample fibonacci program:" puts
 
-3 3 <= puts ! 
-1 2 <= puts ! 
-2 1 <= puts ! 
+1 1 
+  ? -> + ( 1, 1 -- 1, 2 )
+  ? -> + ( 1, 2 -- 2, 3 )
+  ? -> + ( 2, 3 -- 3, 5 )
+  ? -> + ( 3, 5 -- 5, 8 )
+  ? -> + ( 5, 8 -- 8, 13)
+  ? -> + ( 8, 13--13, 21)
+<-> ! 
 
-3 3 >= puts ! 
-1 2 >= puts ! 
-2 1 >= puts ! 
+"The 7th fibonaci number is: " puts puts 
 
-3 3 > puts ! 
-1 2 > puts ! 
-2 1 > puts ! 
-
-3 3 == puts ! 
-true false == puts ! 
-true false != puts ! 
-
-4.7089 5.656363 < puts ! 
-4.7089 5.656363 > puts !
-4.5 5 < puts !
-4.5 5 > puts !
+1 55 77 + <-> ? puts puts puts ??? prints 
+"Hello, world" puts  4 48 48 - + ? ? <-> ? -> ! <- <-> ? <= puts 

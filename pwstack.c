@@ -8,6 +8,7 @@ typedef enum PW_TYPES {
     pw_integer  = 1,
     pw_floating = 2,
     pw_boolean  = 4,
+    pw_string   = 8,
 } pwTypes;
 
 /* Data emplaced on stack */
@@ -135,6 +136,26 @@ int pushFloat(double n) {
     return 0;
 }
 
+int pushString(char* ctring) {
+
+    stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
+
+    if (!newNode) {printf("Bad_alloc\n"); return -1;}
+
+    newNode->data = malloc((strlen(ctring)+1)*sizeof(char));
+    memcpy(newNode->data, ctring, (strlen(ctring)+1)*sizeof(char));
+    newNode->type = pw_string;
+
+    newNode->next = STACK->head;
+    STACK->head   = newNode;
+
+    if (STACK->length == 1) STACK->tail = newNode;
+
+    ++STACK->length;
+
+    return 0;
+}
+
 int pushTrue() {
     stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
 
@@ -173,6 +194,21 @@ int pushFalse() {
 }
 
 /* ======= Print functions ====== */
+int printString() {
+    if (STACK->length == 0) {
+        printf("Stack Underflow -- string print\n");
+        return -1;
+    }
+
+    printf("%s", (char*)STACK->head->data);
+
+    if (pop()) {
+        printf("debug: in printstring()\n");
+        return -1;
+    }
+
+    return 0;
+}
 /* I gook a quick couple minute nap, then suddenly deja vu! */
 int printInt() {
     if (STACK->length == 0) {
@@ -223,10 +259,16 @@ int printTop() {
     switch (STACK->head->type) {
       case (pw_integer):
         printInt(); break;
+
       case (pw_floating):
         printFloat(); break;
+
       case (pw_boolean):
         printBool(); break;
+
+      case (pw_string):
+        printString(); break;
+
       default:
         break;
     }
@@ -244,7 +286,7 @@ int putsTop() {
     putchar('\n'); return 0;
 }
 
-/* ====== Return pops ====== */
+/* ====== Return pops ====== */ /* Mostly debug functions */
 int popInt() {
     int a = *(int*)STACK->head->data;
     pop();
@@ -257,6 +299,7 @@ double popFloat() {
              : (double)*(int*)STACK->head->data;
     pop(); return b;
 }
+
 
 /* ====== ARTHMETIC ====== */
 int stackAdd() {

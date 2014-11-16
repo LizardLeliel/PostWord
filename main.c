@@ -18,22 +18,5 @@ int main(int argc, char** argv)
         printf("No file!");
         return -1;
     }
-
-    /*sample input:
-    ** 2 34 77 90 3.5 + -
-    */
-
-    printf("PRINTING\n");
-
-    int m = getStackLength();
-    int counter;
-
-    printf("Stack Size: %d", getStackLength()); putchar('\n');
-
-    for (counter = 0; counter < m; ++counter) {
-        printsTop();
-    }
-
-    printf("\nDebug: Hello world!\n");
     return 0;
 }
