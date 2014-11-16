@@ -28,11 +28,15 @@ int main(int argc, char** argv)
     int m = getStackLength();
     int counter;
 
+    printf("%d", getStackLength()); putchar('\n');
+
     for (counter = 0; counter < m; ++counter) {
         if (getNextType() == pw_integer) {
             printInt(); putchar(' '); }
         else if (getNextType() == pw_floating) {
-            printFloat(); putchar(' ');
+            printFloat(); putchar(' '); }
+        else if (getNextType() == pw_boolean) {
+            printInt(); putchar(' ');
         }
     }
 

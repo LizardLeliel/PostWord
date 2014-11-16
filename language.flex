@@ -39,6 +39,24 @@ NDIGIT     [^0-9]
 "->"[ \t\n]			{
 				if (stackRROT()) return -1;
 				}
+"true"[ \t\n]			{
+				if (pushTrue()) return -1;
+				}
+"false"[ \t\n]			{
+				if (pushFalse()) return -1;
+				}
+"!!"[ \t\n]			{
+				if (stackNot()) return -1;
+				}
+"&&"[ \t\n]			{
+				if (stackAnd()) return -1;
+				}
+"||"[ \t\n]			{
+				if (stackOr()) return -1;
+				}
+"???"[ \t\n]			{
+				if (pushStackLength()) return -1;
+				}
 "("        {
             register int c;
 

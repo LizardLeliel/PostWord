@@ -18,5 +18,7 @@
 2014 NOV 15 3:35am  v0.3.3:
     -Stack operators <-, ->, and <->
 
-
+2014 NOV 15 5:30am  v0.4.0:
+    -Boolean data types
+    -Boolean operations (&&, ||, !!)
 

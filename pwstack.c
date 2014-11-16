@@ -43,6 +43,7 @@ void initStack() {
 
     memsize[pw_integer]  = sizeof(int);
     memsize[pw_floating] = sizeof(double);
+    memsize[pw_boolean]  = sizeof(int);
 
 }
 
@@ -135,6 +136,44 @@ int pushFloat(double n) {
 
     return 0;
 }
+
+int pushTrue() {
+    stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
+
+    if (!newNode) {printf("Bad_alloc\n"); return -1; }
+
+    newNode->data = malloc(sizeof(int));
+    *(int*)newNode->data = 1;
+    newNode->type = pw_boolean;
+
+    newNode->next = STACK->head;
+    STACK->head   = newNode;
+
+    if (STACK->length == 1) STACK->tail = newNode;
+
+    ++STACK->length;
+
+    return 0;
+}
+
+int pushFalse() {
+    stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
+
+    if (!newNode) {printf("Bad_alloc\n"); return -1; }
+
+    newNode->data = malloc(sizeof(int));
+    *(int*)newNode->data = 0;
+    newNode->type =  pw_boolean;
+
+    newNode->next = STACK->head;
+    STACK->head   = newNode;
+
+    if (STACK->length == 1) STACK->tail = newNode;
+
+    ++STACK->length;
+    return 0;
+}
+
 
 /* print an integer and pop */
 int printInt() {
@@ -269,6 +308,47 @@ int stackDiv() {
     }
 }
 
+/* ======= Boolean operators ====== */
+int stackNot() {
+    if (!STACK->length) {
+        printf("Emptey stack! - bool NOT\n"); return -1; }
+    if (!(STACK->head->type & (pw_boolean | pw_integer))) {
+        printf("Not a bool or an integer! - bool NOT\n");
+        return -1; }
+    int f = popInt();
+    f = !f;
+    f ?  pushTrue() : pushFalse();
+    return 0;
+}
+
+int stackAnd() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! bool AND\n"); return -1; }
+    if (!(STACK->head->type       & (pw_boolean | pw_integer) ||
+        !(STACK->head->next->type & (pw_boolean | pw_integer)))) {
+            printf("Not a bool or an integer! - bool AND\n");
+            return -1;
+        }
+    int g = popInt();
+    int h = popInt();
+    g && h ? pushTrue() : pushFalse();
+    return 0;
+}
+
+int stackOr() {
+    if (STACK->length < 2) {
+        printf("Stack underflow! bool OR\n"); return -1; }
+    if (!(STACK->head->type       & (pw_boolean | pw_integer) ||
+        !(STACK->head->next->type & (pw_boolean | pw_integer)))) {
+            printf("Not a bool or an integer! - bool AND\n");
+            return -1;
+        }
+    int i = popInt();
+    int j = popInt();
+    i || j ? pushTrue() : pushFalse();
+    return 0;
+}
+
 /* ======= Stack Operators ====== */
 int stackSwap() {
     if (STACK->length < 2) {
@@ -319,6 +399,10 @@ int stackRROT() {
 }
 
 /* ======= Other ======= */
+int pushStackLength() {
+    if (pushInt(getStackLength())) return -1;
+}
+
 int getStackLength() {
     return STACK->length;
 }

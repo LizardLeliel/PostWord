@@ -28,6 +28,8 @@ void initStack();
 /* Pushing */
 int pushInt(int n);
 int pushFloat(double n);
+int pushTrue();
+int pushFalse();
 /* Printing */
 int printInt();
 int printFloat();
@@ -41,6 +43,10 @@ int stackAdd();
 int stackSub();
 int stackMul();
 int stackDiv();
+/* Boolean operators */
+int stackNot();
+int stackAnd();
+int stackOr();
 /* Stack Operations */
 int stackSwap();
 int stackLROT();
