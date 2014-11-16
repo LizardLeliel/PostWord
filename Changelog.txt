@@ -12,6 +12,9 @@
     -Supports operators -, /, and *
     -Exits on stack underflow
 
+2014 NOV 14 10:03pm v0.2.8:
+    -Supports _stack_ operators ? and ! (! is pop operator)
+
 
 
 

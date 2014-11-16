@@ -26,6 +26,9 @@ typedef struct PW_STACK_HEAD {
     size_t length;
 } stackHead;
 
+/* data size - for dup */
+int memsize[pw_boolean+1];
+
 /* The stack postward uses */
 stackHead* STACK;
 
@@ -41,7 +44,11 @@ void initStack() {
     STACK->tail->next = NULL;
     STACK->tail->type = nil;
 
+    memsize[pw_integer]  = sizeof(int);
+    memsize[pw_floating] = sizeof(double);
+
 }
+
 
 /* Pop anything off of the stack */
 int pop() {
@@ -57,6 +64,23 @@ int pop() {
     free(temp);
 
     --STACK->length;
+    return 0;
+}
+
+int stackDup() {
+    stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
+    if (!newNode) {printf("Bad_alloc\n"); return -1; }
+
+    newNode->type = STACK->head->type;
+    newNode->data = malloc(memsize[newNode->type]);
+
+    memcpy(newNode->data, STACK->head->data, memsize[newNode->type]);
+
+    newNode->next = STACK->head;
+    STACK  ->head = newNode;
+
+    ++STACK->length;
+
     return 0;
 }
 

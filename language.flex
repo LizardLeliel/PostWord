@@ -24,7 +24,12 @@ NDIGIT     [^0-9]
 "/"[ \t\n]			{
 				if (stackDiv()) return -1;
 				}
-
+"!"[ \t\n]			{
+				if (pop()) return -1;
+				}
+"?"[ \t\n]			{
+				if (stackDup()) return -1;
+				}
 "<<EOF>>"            	 return 0;
 
 %%

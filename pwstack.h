@@ -32,6 +32,7 @@ int pushFloat(double n);
 int printInt();
 int printFloat();
 /* Popping */
+int stackDup();
 int pop();
 int popInt();
 double popFloat();
