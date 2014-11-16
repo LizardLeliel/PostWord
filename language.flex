@@ -30,6 +30,15 @@ NDIGIT     [^0-9]
 "?"[ \t\n]			{
 				if (stackDup()) return -1;
 				}
+"<->"[ \t\n]			{
+				if (stackSwap()) return -1;
+				}
+"<-"[ \t\n]			{
+				if (stackLROT()) return -1;
+				}
+"->"[ \t\n]			{
+				if (stackRROT()) return -1;
+				}
 "<<EOF>>"            	 return 0;
 
 %%

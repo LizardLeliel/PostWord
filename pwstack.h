@@ -31,7 +31,7 @@ int pushFloat(double n);
 /* Printing */
 int printInt();
 int printFloat();
-/* Popping */
+/* Popping & Dupping */
 int stackDup();
 int pop();
 int popInt();
@@ -41,6 +41,10 @@ int stackAdd();
 int stackSub();
 int stackMul();
 int stackDiv();
+/* Stack Operations */
+int stackSwap();
+int stackLROT();
+int stackRROT();
 /* Others */
 int getStackLength();
 pwTypes getNextType();
