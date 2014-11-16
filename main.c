@@ -36,6 +36,6 @@ int main(int argc, char** argv)
         }
     }
 
-    printf("\nHello world!\n");
+    printf("\nDebug: Hello world!\n");
     return 0;
 }

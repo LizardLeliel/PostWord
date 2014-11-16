@@ -290,8 +290,8 @@ int stackLROT() {
     }
 
     STACK->tail->next->next = STACK->head;
-    stackNode* trace = STACK->head;
-    STACK->head = STACK->tail->next;
+    stackNode* trace        = STACK->head;
+    STACK->head             = STACK->tail->next;
 
     while (trace->next != STACK->tail){
         trace = trace->next;

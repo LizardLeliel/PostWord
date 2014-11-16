@@ -39,6 +39,26 @@ NDIGIT     [^0-9]
 "->"[ \t\n]			{
 				if (stackRROT()) return -1;
 				}
+"("        {
+            register int c;
+
+            for ( ; ; )
+                {
+                while ( (c = input()) != ')' &&
+                        c != EOF )
+                    ;    /* eat up text of comment */
+
+                if ( c == ')' )
+                    {
+		    break;
+  		    }
+                if ( c == EOF )
+                    {
+                    printf("End of file while parsing comment");
+		    return -1;
+                    }
+                }
+            }
 "<<EOF>>"            	 return 0;
 
 %%
