@@ -419,7 +419,7 @@ int stackLessThen() {
 
 int stackLessEq() {
     if (STACK->length < 2) {
-        printf("Stack underflow! -- Comparison less then\n");
+        printf("Stack underflow! -- Comparison less then or equal to\n");
         return -1;
     }
     if (STACK->head->type       & (pw_integer | pw_boolean) &&
@@ -438,13 +438,13 @@ int stackLessEq() {
             m <= n ? pushTrue() : pushFalse();
             return 0;
     }
-    printf("Incompatable types -- Comparison less then\n");
+    printf("Incompatable types -- Comparison less then or equal to\n");
     return -1;
 }
 
 int stackMoreThen() {
     if (STACK->length < 2) {
-        printf("Stack underflow! -- Comparison less then\n");
+        printf("Stack underflow! -- Comparison more then\n");
         return -1;
     }
     if (STACK->head->type       & (pw_integer | pw_boolean) &&
@@ -463,13 +463,13 @@ int stackMoreThen() {
             m > n ? pushTrue() : pushFalse();
             return 0;
     }
-    printf("Incompatable types -- Comparison less then\n");
+    printf("Incompatable types -- Comparison more then\n");
     return -1;
 }
 
 int stackMoreEq() {
     if (STACK->length < 2) {
-        printf("Stack underflow! -- Comparison less then\n");
+        printf("Stack underflow! -- Comparison more then or equal to\n");
         return -1;
     }
     if (STACK->head->type       & (pw_integer | pw_boolean) &&
@@ -488,13 +488,13 @@ int stackMoreEq() {
             m >= n ? pushTrue() : pushFalse();
             return 0;
     }
-    printf("Incompatable types -- Comparison less then\n");
+    printf("Incompatable types -- Comparison more then or equal to\n");
     return -1;
 }
 
 int stackEqual() {
     if (STACK->length < 2) {
-        printf("Stack underflow! -- Comparison less then\n");
+        printf("Stack underflow! -- Equality comparison\n");
         return -1;
     }
     if (STACK->head->type       & (pw_integer | pw_boolean) &&
@@ -513,14 +513,14 @@ int stackEqual() {
             m == n ? pushTrue() : pushFalse();
             return 0;
     }
-    printf("Incompatable types -- Comparison less then\n");
+    printf("Incompatable types -- Equality comparison\n");
     return -1;
 
 }
 
 int stackInequal() {
     if (STACK->length < 2) {
-        printf("Stack underflow! -- Comparison less then\n");
+        printf("Stack underflow! -- Inequality comparison\n");
         return -1;
     }
     if (STACK->head->type       & (pw_integer | pw_boolean) &&
@@ -539,7 +539,7 @@ int stackInequal() {
             m != n ? pushTrue() : pushFalse();
             return 0;
     }
-    printf("Incompatable types -- Comparison less then\n");
+    printf("Incompatable types -- Inequality comparison\n");
     return -1;
 
 }

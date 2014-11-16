@@ -28,3 +28,5 @@
 2014 NOV 15 7:52am  v0.4.9:
     -Comparison operators (<, >, <=, >=, ==, !=)
 
+2014 NOV 15 8:02am  v0.6.10:
+    -Fixed error messages for comparison operators
