@@ -43,9 +43,9 @@ Assuming you have a stack of: <br>
 Then these are the operators, and what they do to the above stack: <br>
 ?   (duplicate the top of the stack -- \[1, 4, 7, 6, 6\]) <br>
 !   (pop the top of the stack -- \[1, 4, 7\]) <br>
-\>>> (rotate the stack one to the right -- \[6, 1, 4, 7\]) <br>
-\<<< (rotate the stack one to the left -- \[4, 7, 6, 1\]) <br>
-^   (swap the top two items -- \[4, 7, 1, 6\]) <br>
+-> (rotate the stack one to the right -- \[6, 1, 4, 7\]) <br>
+<\- (rotate the stack one to the left -- \[4, 7, 6, 1\]) <br>
+\<\->   (swap the top two items -- \[4, 7, 1, 6\]) <br>
 
 With these, you can move things arround, and recover them back when you need them. Suppose this quick fibonacci code:
 
