@@ -70,43 +70,44 @@ Doubles  (pushed by having a number with a decimal place and a number on both si
 Booleans (pushed by true or false; they will be outputted as "ture or false")
 Strings  (pushed by typing in a series of letters delimited by quote marks: no escape characters, no implicit line continuation (or explicit, for that matter
 
-Output:
+Output: <br>
 
-print  (prints value)
-prints (prints value with a following space)
-puts   (prints value with a following newline)
+print  (prints value) <br>
+prints (prints value with a following space) <br>
+puts   (prints value with a following newline) <br>
 
-Arthmetic operators:
-\+ Addition (n1 n2 -- n1+n2)
-\- Subtraction (n1 n2 -- n2-n1) (Note: this is a little different from most other implementations of stack langauges as of this update)
-\* Multiplication (n1 n2 -- n1*n2)
-/ Division (n1 n2 -- n2/n1) (Note: As subtraction, this isn't the usual (n1 n2 -- n1/n2) implementation)
+Arthmetic operators: <br> 
+\+ Addition (n1 n2 -- n1+n2) <br>
+\- Subtraction (n1 n2 -- n2-n1) (Note: this is a little different from most other implementations of stack langauges as of this update) <br>
+\* Multiplication (n1 n2 -- n1*n2) <br>
+/ Division (n1 n2 -- n2/n1) (Note: As subtraction, this isn't the usual (n1 n2 -- n1/n2) implementation) <br>
 
-Stack operators:
-? dupplication (n -- n n)
-! pop/drop     (n1 n2 -- n1)
-<\- left rot   (nf n(f-1) .... n3 n2 n1 -- n(f01) .... n3 n2 n1 nf)
--\> right rot  (nf n(f-1) .... n3 n2 n1 -- n1 nf n(f-1) .... n3 n2)
-<\-> swap      (n1 n2 -- n2 n1)
+Stack operators: <br>
+? dupplication (n -- n n) <br>
+! pop/drop     (n1 n2 -- n1) <br>
+<\- left rot   (nf n(f-1) .... n3 n2 n1 -- n(f01) .... n3 n2 n1 nf) <br>
+-\> right rot  (nf n(f-1) .... n3 n2 n1 -- n1 nf n(f-1) .... n3 n2) <br>
+<\-> swap      (n1 n2 -- n2 n1) <br>
 
-Boolean operators:
-&& Boolean AND (b1 b2 -- b1&&b2)
-!! Boolean NOT (b1 -- !b1)
-|| Boolean OR  (b1 b2 -- b1||b2)
+Boolean operators: <br>
+&& Boolean AND (b1 b2 -- b1&&b2) <br>
+!! Boolean NOT (b1 -- !b1) <br>
+|| Boolean OR  (b1 b2 -- b1||b2) <br>
 
-Comparison operators:
-<\ Less then       (n1 n2 -- n2 <\  n1)
-<= Less then or eq (n1 n2 -- n2 <\= 21)
-\> More then       (n1 n2 -- n2 >  n1)
-=> More then or eq (n1 n2 -- n2 => n2)
-=\= Equal to       (n1 n2 -- n1 == n2)
-!= Not equal to    (n1 n2 -- n1 != n2)
+Comparison operators: <br>
+<\ Less then       (n1 n2 -- n2 <\  n1) <br>
+<= Less then or eq (n1 n2 -- n2 <\= 21) <br>
+\> More then       (n1 n2 -- n2 >  n1) <br>
+=> More then or eq (n1 n2 -- n2 => n2) <br>
+=\= Equal to       (n1 n2 -- n1 == n2) <br>
+!= Not equal to    (n1 n2 -- n1 != n2) <br>
 
 Note: ANYTHING (pushing a data type, output keyword, operators) must be followed by atleast one white space
 
 There are no plans to include control structures or word definition ("functions") until a future project
 
 To come:
+--------
 - [ ] Modulous operator
 - [ ] Different Rrot/Lrot behaviour
 - [ ] Over operator
