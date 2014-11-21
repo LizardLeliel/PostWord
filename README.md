@@ -65,10 +65,10 @@ This section describes what you can do!
 
 Supported data types:
 
-Integers (pushed by a whole value; no decimal places, including .0)
-Doubles  (pushed by having a number with a decimal place and a number on both sides)
-Booleans (pushed by true or false; they will be outputted as "ture or false")
-Strings  (pushed by typing in a series of letters delimited by quote marks: no escape characters, no implicit line continuation (or explicit, for that matter
+Integers (pushed by a whole value; no decimal places, including .0) <br>
+Doubles  (pushed by having a number with a decimal place and a number on both sides) <br>
+Booleans (pushed by true or false; they will be outputted as "ture or false") <br>
+Strings  (pushed by typing in a series of letters delimited by quote marks: no escape characters, no implicit line continuation (or explicit, for that matter <br>
 
 Output: <br>
 
