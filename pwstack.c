@@ -38,13 +38,13 @@ void initStack() {
     STACK       = (stackHead*)malloc(sizeof(stackHead));
     STACK->head = (stackNode*)malloc(sizeof(stackNode));
 
-    STACK->tail       = (stackNode*)malloc(sizeof(stackNode));
-    STACK->tail->next = (stackNode*)malloc(sizeof(stackNode));
+    STACK->tail       = NULL;
     STACK->length     = 0;
 
     memsize[pw_integer]  = sizeof(int);
     memsize[pw_floating] = sizeof(double);
     memsize[pw_boolean]  = sizeof(int);
+    memsize[pw_string]   = sizeof(int);
 
 }
 
@@ -75,22 +75,29 @@ int pop() {
 }
 
 int stackDup() {
+    /* No stack */
     if (STACK->length == 0) {printf("Emptey stack"); return -1;}
 
     stackNode* newNode = (stackNode*)malloc(sizeof(stackNode));
-    if (!newNode) {printf("Bad_alloc\n"); return -1; }
+    if (!newNode) {printf("Bad_alloc\n");
+        return -1; } /* If malloc failed */
+
+    size_t mallocSize;
+    if (STACK->head->type == pw_string) {
+        mallocSize = strlen((char*)STACK->head->data)+1; } /* +1 for \0 */
+    else {
+        mallocSize = 1;}
 
     newNode->type = STACK->head->type;
-    newNode->data = malloc(memsize[newNode->type]);
+    newNode->data = malloc(memsize[newNode->type]*mallocSize);
 
-    memcpy(newNode->data, STACK->head->data, memsize[newNode->type]);
+    memcpy(newNode->data, STACK->head->data, memsize[newNode->type]*mallocSize);
 
     newNode->next = STACK->head;
     STACK  ->head = newNode;
 
-/*
     if (STACK->length == 1) STACK->tail = STACK->head;
-*/
+
     ++STACK->length;
 
     return 0;

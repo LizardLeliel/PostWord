@@ -35,6 +35,11 @@
     -STRINGS! (no accessing individual characters, however. But still! Printing out literals is nice)
 
 2014 NOV 15 1:00pm  V0.6.1/2:
-    -Cleaned output 
+    -Cleaned output
+
+2014 NOV 20         V0.6.6:
+    -Fixed dupping a string (This doesn't cause undefined behaviour: "Hello World" ? prints)
+    -Removed some memory leaks in stackinit()
+    -Added more depth to README.md
 
 
