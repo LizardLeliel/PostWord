@@ -44,7 +44,7 @@ void initStack() {
     memsize[pw_integer]  = sizeof(int);
     memsize[pw_floating] = sizeof(double);
     memsize[pw_boolean]  = sizeof(int);
-    memsize[pw_string]   = sizeof(int);
+    memsize[pw_string]   = sizeof(char);
 
 }
 
