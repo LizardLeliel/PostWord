@@ -1,7 +1,7 @@
 Postword
 ========
 
-Postword is a intrepreted, stack-oriented language, inspired by Forth. It aims to make stack-oriented programming simple and natural, and it is my Volta Megathon entry. It is created with Flex lexical analyzer
+Postword is a intrepreted, type-checked, stack-oriented language; inspired by Forth. It aims to make stack-oriented programming simple and natural, and it is a Hackathon competition entrance (Volta Megathon 2014). It was written with intentions to learn and to have some fun; and a more complete (and cleaner) version of the project is planned to take over from this.
 
 What is a stack-oriented language?
 ----------------------------------
@@ -81,6 +81,7 @@ Arthmetic operators: <br>
 \- Subtraction (n1 n2 -- n2-n1) (Note: this is a little different from most other implementations of stack langauges as of this update) <br>
 \* Multiplication (n1 n2 -- n1*n2) <br>
 / Division (n1 n2 -- n2/n1) (Note: As subtraction, this isn't the usual (n1 n2 -- n1/n2) implementation) <br>
+% Modulus  (d1 d2 -- d2%d1) (Note: same as above)
 
 Stack operators: <br>
 ? dupplication (n -- n n) <br>
@@ -99,18 +100,10 @@ Comparison operators: <br>
 <= Less then or eq (n1 n2 -- n2 <\= 21) <br>
 \> More then       (n1 n2 -- n2 >  n1) <br>
 => More then or eq (n1 n2 -- n2 => n2) <br>
-=\= Equal to       (n1 n2 -- n1 == n2) <br>
+== Equal to       (n1 n2 -- n1 == n2) <br>
 != Not equal to    (n1 n2 -- n1 != n2) <br>
 
 Note: ANYTHING (pushing a data type, output keyword, operators) must be followed by atleast one white space
-
-There are no plans to include control structures or word definition ("functions") until a future project
-
-To come:
---------
-- [ ] Modulous operator
-- [ ] Different Rrot/Lrot behaviour
-- [ ] Over operator
 
 
 

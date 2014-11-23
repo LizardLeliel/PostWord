@@ -46,6 +46,9 @@ INT        [0-9]
 "/"[ \t\n]+			{
 				if (stackDiv()) return -1;
 				}
+"%"[ \t\n]+			{
+				if (stackMod()) return -1;
+				}
 "!"[ \t\n]+			{
 				if (pop()) return -1;
 				}

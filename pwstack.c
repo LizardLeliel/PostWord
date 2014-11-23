@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 /* Data values */
 typedef enum PW_TYPES {
@@ -400,6 +401,35 @@ int stackDiv() {
     return -1;
 }
 
+int stackMod() {
+    if (STACK->length < 2) {
+        printf("Stack Underflow - division\n"); return -1; }
+    if (STACK->head->type       == pw_integer &&
+        STACK->head->next->type == pw_integer) {
+        int a = popInt();
+        int b = popInt();
+        if (b == 0) {
+            printf("Mod division by 0: %d%%%d", a, b);
+            return -1;
+        }
+        pushInt(a % b);
+        return 0;
+    }
+    if (STACK->head->type       & (pw_integer | pw_floating) &&
+        STACK->head->next->type & (pw_integer | pw_floating)) {
+            double c = popFloat();
+            double d = popFloat();
+            if (d == 0.0) {
+                printf("Mod division by 0.0: %f%%%f", c, d);
+            return 0;
+            }
+            pushFloat(fmod(c, d));
+            return 0;
+    }
+
+    printf("Invalid types -- operator '/'");
+    return -1;
+}
 /* ======= Boolean operators ====== */
 int stackNot() {
     if (!STACK->length) {

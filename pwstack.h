@@ -51,6 +51,7 @@ int stackAdd();
 int stackSub();
 int stackMul();
 int stackDiv();
+int stackMod();
 /* Boolean operators */
 int stackNot();
 int stackAnd();
